@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://12exxh3n0gha" path="res://Medieval King Pack/Hit.png" id="5_l63k4"]
 [ext_resource type="Texture2D" uid="uid://dan3egpkgb3cr" path="res://Medieval King Pack/Idle.png" id="7_bk5yn"]
 [ext_resource type="Texture2D" uid="uid://cqhpivp0uasld" path="res://Medieval King Pack/Jump.png" id="8_7lawm"]
-[ext_resource type="PackedScene" uid="uid://i5177yx851hv" path="res://fondo.tscn" id="9_bk5yn"]
 [ext_resource type="Texture2D" uid="uid://bvqq0hjlhkywv" path="res://Fondo/fondoBosque.jpg" id="10_7lawm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bteam"]
+size = Vector2(27, 88)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7lawm"]
 atlas = ExtResource("2_tl684")
@@ -350,27 +352,47 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcppo"]
+size = Vector2(2449.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_optvw"]
+size = Vector2(21, 615)
+
 [node name="Raiz" type="Node2D" unique_id=970304944]
 
-[node name="Fondo" parent="." unique_id=1123785638 instance=ExtResource("9_bk5yn")]
+[node name="Fondo1" type="Node2D" parent="." unique_id=1893932858]
 
-[node name="Sprite2D2" type="Sprite2D" parent="Fondo" unique_id=393359518]
-texture_repeat = 3
-position = Vector2(577, 323)
-scale = Vector2(1.44375, 2.546875)
+[node name="Sprite2D" type="Sprite2D" parent="Fondo1" unique_id=102498853]
+position = Vector2(581.25, 303)
+scale = Vector2(1.4668752, 1.9765626)
 texture = ExtResource("10_7lawm")
 
 [node name="Jugador" type="Node2D" parent="." unique_id=1948533173]
 
 [node name="Jugador" type="CharacterBody2D" parent="Jugador" unique_id=840212127]
-position = Vector2(494, 285)
+position = Vector2(69, 464)
 script = ExtResource("1_k12mm")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador/Jugador" unique_id=50189902]
+position = Vector2(-1.5, 2)
+shape = SubResource("RectangleShape2D_bteam")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jugador/Jugador" unique_id=1454343089]
-position = Vector2(436, 91)
+position = Vector2(10, 7)
 sprite_frames = SubResource("SpriteFrames_bk5yn")
 animation = &"Golpe"
 frame = 2
 frame_progress = 0.7813482
+
+[node name="Piso" type="Node2D" parent="." unique_id=1289227199]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso" unique_id=867377360]
+position = Vector2(1213, 525)
+shape = SubResource("RectangleShape2D_fcppo")
+
+[node name="LimiteIzq" type="Node2D" parent="." unique_id=1585588854]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteIzq" unique_id=20134877]
+position = Vector2(11, 276)
+shape = SubResource("RectangleShape2D_optvw")
