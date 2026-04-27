@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bubh58dl36g2d"]
+
+[ext_resource type="Script" uid="uid://3qf1p0p8sqot" path="res://scripts/pausa.gd" id="1_olc6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iki10"]
+bg_color = Color(0, 0.58431375, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtf0v"]
+bg_color = Color(0, 0.58431375, 0, 1)
+
+[node name="Pausa" type="Control" unique_id=1130491830]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_olc6s")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=6404874]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -175.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1433679689]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=840947256]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Pausa"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1029760096]
+process_mode = 3
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_iki10")
+text = "Reanudar"
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer" unique_id=559476765]
+process_mode = 3
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_mtf0v")
+text = "Salir"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

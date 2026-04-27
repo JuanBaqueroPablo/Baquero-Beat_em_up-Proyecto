@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://blmkrkx1ggutn"]
+
+[ext_resource type="Script" uid="uid://dsig0qfwebxka" path="res://scripts/controles.gd" id="1_cs0vl"]
+[ext_resource type="Texture2D" uid="uid://ued7ad8jupwy" path="res://Fondo/inicioFondo.jpg" id="1_wlnyy"]
+
+[sub_resource type="Theme" id="Theme_cs0vl"]
+
+[sub_resource type="FontFile" id="FontFile_p55k6"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdhos"]
+bg_color = Color(0.5351205, 0.60038817, 0.60038817, 0.319)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v00r"]
+bg_color = Color(0.53333336, 0.6, 0.6, 0.31764707)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmciq"]
+bg_color = Color(0.53333336, 0.6, 0.6, 0.31764707)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t60"]
+bg_color = Color(0.40007353, 0.40007353, 0.3823555, 0.42400002)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43ocl"]
+bg_color = Color(0.53333336, 0.6, 0.6, 0.31764707)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8epg"]
+bg_color = Color(0.53333336, 0.6, 0.6, 0.31764707)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abe4w"]
+bg_color = Color(0, 0.58431375, 0, 1)
+
+[node name="Control" type="Control" unique_id=902161584]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 10.0
+offset_right = 1151.0
+offset_bottom = 648.0
+script = ExtResource("1_cs0vl")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1719089370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wlnyy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect2" unique_id=595300688]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.5
+offset_top = -159.0
+offset_right = 287.5
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="TextureRect2/VBoxContainer" unique_id=1805241689]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = " Controles"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect2/VBoxContainer" unique_id=1921337925]
+layout_mode = 2
+theme = SubResource("Theme_cs0vl")
+theme_override_fonts/font = SubResource("FontFile_p55k6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdhos")
+text = "Moverse:  A D"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="TextureRect2/VBoxContainer" unique_id=624020356]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_p55k6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v00r")
+text = "Saltar:  W"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="TextureRect2/VBoxContainer" unique_id=1250810824]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_p55k6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmciq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p7t60")
+text = "Ataque 1:  C"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="TextureRect2/VBoxContainer" unique_id=1519923107]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_p55k6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_43ocl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p7t60")
+text = "Ataque 2: X"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="TextureRect2/VBoxContainer" unique_id=718457604]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_p55k6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8epg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p7t60")
+text = "Pausa:  ESC"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect2/VBoxContainer" unique_id=141376658]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_abe4w")
+text = "Volver
+"
+
+[connection signal="pressed" from="TextureRect2/VBoxContainer/Button" to="." method="_on_button_pressed"]

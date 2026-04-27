@@ -1,0 +1,14 @@
+Control
+Button
+Label
+VBoxContainer
+TextureRect
+PanelContainer
+CollisionShape2D
+TextureProgressBar
+AnimatedSprite2D
+CharacterBody2D
+Sprite2D
+CanvasLayer
+Area2D
+ProgressBar

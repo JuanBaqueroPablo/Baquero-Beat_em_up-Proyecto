@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dg46poq8tx6iw"]
+
+[ext_resource type="Script" uid="uid://qvmlqhjcf264" path="res://scripts/inicio.gd" id="1_c5o0i"]
+[ext_resource type="Texture2D" uid="uid://ued7ad8jupwy" path="res://Fondo/inicioFondo.jpg" id="2_r1atk"]
+
+[sub_resource type="FontFile" id="FontFile_lnt83"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17m5t"]
+bg_color = Color(0, 0.58383155, 0, 1)
+
+[node name="Control" type="Control" unique_id=1342574935]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+script = ExtResource("1_c5o0i")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1187049898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r1atk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=813783896]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.5
+offset_top = -195.0
+offset_right = 304.5
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=761153777]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_lnt83")
+theme_override_font_sizes/font_size = 60
+text = "     Corona de Sangre"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1681217836]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_17m5t")
+text = "Jugar"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2018229452]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_17m5t")
+text = "Controles
+"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
