@@ -37,15 +37,18 @@ func _physics_process(delta):
 	var direccion = 0
 	if not is_on_floor():
 		velocity.y += gravedad * delta
+	
+	#CORRECCION: El cooldonw podría ser unificado, un solo timer que dura un tiempo de acuerdo al último ataque que se hizo. Si tuvieras 10 ataques tendrías 10 variables?? ojo acá [Desarrollo (-)]
 	cooldown_ataque1 -= delta
 	cooldown_ataque2 -= delta
 	if !recibiendo_daño:
 		if Input.is_action_just_pressed("Ataque1") && !atacando && cooldown_ataque1 <= 0:
-			cooldown_ataque1 = 2.5
-			_atacar("Ataque1", 50)
+			cooldown_ataque1 = .5
+			#CORRECCION: No está del todo mal pero conviene tener este número en una variable
+			_atacar("Ataque1", 1000)
 		elif Input.is_action_just_pressed("ataque2") && !atacando && cooldown_ataque2 <= 0:
-			cooldown_ataque2 = 2.0
-			_atacar("Ataque2", 25)
+			cooldown_ataque2 = .5
+			_atacar("Ataque2", 1000)
 		if Input.is_action_pressed("mover_derecha"):
 			direccion += 1
 		if Input.is_action_pressed("mover_izquierda"):
@@ -78,6 +81,7 @@ func _atacar(animacion, daño):
 	atacando = true
 	avanzar = false
 	daño_actual = daño
+	#CORRECCION: EL ataque debe lanzarse en un momento de la animación, no en el principio, hay que calcular en qué frame necesitamos que se ejecute el daño. [Diseño (-)]
 	ataque_shape.disabled = false
 	animaciones.play(animacion)
 
@@ -113,6 +117,7 @@ func _on_ataque_body_entered(body):
 			body.recibir_daño(daño_actual)
 
 func _recibir_daño(cantidad):
+	#CORRECCION: Bien este tipo de "salidas rápidas" [Desarrollo (+)]
 	if muriendo or recibiendo_daño:
 		return
 	vida_actual -= cantidad

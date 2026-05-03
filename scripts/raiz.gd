@@ -44,6 +44,8 @@ func _on_boss_mitad_vida():
 		limite5.queue_free()
 
 func _process(delta):
+	#CORRECCION: Este control frame by frame se puede resolver tranquilamente con una señal.
+	# ya usaste señales en este proyecto
 	if transicionando:
 		return
 	if jugador.muriendo:

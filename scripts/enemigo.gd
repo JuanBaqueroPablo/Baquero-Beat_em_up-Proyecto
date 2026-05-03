@@ -21,7 +21,8 @@ var limite_liberado_mitad = false
 @onready var animaciones = $AnimatedSprite2D
 @onready var barra_vida = $TextureProgressBar2
 
-var jugador = null
+#CORRECCION: Ves le agrego export y aparece a la derecha (en el nodo que tenga este script)
+@export var jugador:Node2D = null
 
 func _ready():
 	vida_actual = vida_maxima
@@ -35,6 +36,9 @@ func _physics_process(delta):
 		return
 	if not is_on_floor():
 		velocity.y += gravedad * delta
+	
+	#CORRECCION: Ojo con esta salida rápida. podrías haber seteado el jugador
+	# con @export desde el editor -------->
 	if jugador == null:
 		jugador = get_tree().get_first_node_in_group("jugador")
 		move_and_slide()
@@ -42,6 +46,7 @@ func _physics_process(delta):
 	var distancia = global_position.distance_to(jugador.global_position)
 	if distancia < distancia_perseguir:
 		detectado = true
+	#CORECCION: Lo mismo acá, poner muchos move_and_slide es indicio de que estás haciendo algo mal. Si hay más de uno ya perdés algo de control sobre el movimiento.
 	if invocando:
 		velocity.x = 0
 		move_and_slide()
@@ -88,6 +93,7 @@ func recibir_daño(cantidad):
 		invocando = true
 		atacando = false
 		recibiendo_daño = false
+		#CORRECCION: Bien la señal, pero por qué no cuarto_vida.emit()?? F1->Signal y te muestra esa manera, sin salir de Godot!
 		emit_signal("cuarto_vida")
 		animaciones.play("Invocar")
 		return
